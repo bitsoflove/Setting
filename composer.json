@@ -22,7 +22,7 @@
   "require": {
     "php": ">=5.5",
     "composer/installers": "~1.0",
-    "asgardcms/core-module": "~1.0",
+    "asgardcms/core-module": "dev-master",
     "doctrine/dbal": "~2.5"
   },
   "require-dev": {
@@ -33,6 +33,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/nWidart/modules"
+    },
+    {
+        "type": "vcs",
+        "url": "git@github.com:bitsoflove/Core.git"
     }
   ],
   "autoload-dev": {
