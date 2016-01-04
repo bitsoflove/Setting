@@ -27,11 +27,15 @@ class ThemeServiceProvider extends ServiceProvider
 
         if ($this->inAdministration()) {
             $themeName = $this->app['config']->get('asgard.core.core.admin-theme');
-
             return $this->app['stylist']->activate($themeName, true);
         }
 
-        $themeName = $this->app['setting.settings']->get('core::template', null, 'Flatly');
+        //if multi site, then grab themeName from db
+        if (is_module_enabled('Site')) {
+            $themeName = \Site::currentLocale()->theme;
+        } else {
+            $themeName = $this->app['setting.settings']->get('core::template', null, 'Flatly');
+        }
 
         return $this->app['stylist']->activate($themeName, true);
     }
