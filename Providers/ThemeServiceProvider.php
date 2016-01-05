@@ -32,7 +32,14 @@ class ThemeServiceProvider extends ServiceProvider
 
         //if multi site, then grab themeName from db
         if (is_module_enabled('Site')) {
-            $themeName = \Site::currentLocale()->theme;
+            $currentLocale = \Site::currentLocale();
+
+            //if(!empty($currentLocale)) {
+                $themeName = $currentLocale->theme;
+            //} else {
+            //    \Log::warning('Invalid locale defined! ThemeServiceProvider@setActiveTeam');
+            //    $themeName = $this->app['setting.settings']->get('core::template', null, 'Flatly');
+            //}
         } else {
             $themeName = $this->app['setting.settings']->get('core::template', null, 'Flatly');
         }
