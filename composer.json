@@ -1,5 +1,5 @@
 {
-  "name": "asgardcms/setting-module",
+  "name": "bitsoflove-asgard/setting",
   "type": "asgard-module",
   "description": "Setting module for AsgardCMS. Handles all the site settings.",
   "keywords": [
@@ -22,7 +22,7 @@
   "require": {
     "php": ">=5.5",
     "composer/installers": "~1.0",
-    "asgardcms/core-module": "dev-master",
+    "bitsoflove-asgard/core": "~1.22.0.1",
     "doctrine/dbal": "~2.5"
   },
   "require-dev": {
